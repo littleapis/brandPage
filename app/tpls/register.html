@@ -1,0 +1,26 @@
+<header>
+    用户注册
+</header>
+<section class="page">
+    <div class="wrap regPage">
+        <form name="myForm" novalidate>
+            <div class="input-container">
+                <input class="acc-input" name="userName" ng-model="user.name" type="text" placeholder="请输入用户名" required />
+            </div>
+            <div class="input-container">
+                <input class="acc-input" name="email" ng-model="user.email" type="text" placeholder="请输入电子邮箱" required />
+            </div>
+            <div ng-show="myForm.email.$error.required">出错咯</div>
+            <div ng-show="myForm.eamil.$error.email">类型有误</div>
+            <div class="input-container">
+                <input class="acc-input" name="password" type="password" placeholder="请设置6-20位登录密码" required />
+            </div>
+            <div class="input-container">
+                <input class="acc-input" name="password" type="password"  placeholder="确认密码" required />
+            </div>
+            <button ng-disabled="myForm.$invalid" ng-click="save()">
+                SAVE
+            </button>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,118 @@
+<!--试用提示框 begin-->
+<div class="tryPopup" style="display: none;">
+  <div class="tryPoint">
+    <span class="close"></span>
+    首页品牌均可免费领取试用品~
+  </div>
+</div>
+<!--试用提示框 end-->
+<header class="brand_index">
+  <form>
+    <input type="search" class="brand_search"/>
+  </form>
+</header>
+<section class="brand_classify">
+  <div class="classify_box">
+    <a href="">
+      <span><img src="images/icon_brandClassify-01.png" /></span>
+      <center>护肤</center>
+    </a>
+  </div>
+  <div class="classify_box">
+    <a href="">
+      <span><img src="images/icon_brandClassify-02.png" /></span>
+      <center>个人洗护</center>
+    </a>
+  </div>
+  <div class="classify_box">
+    <a href="">
+      <span><img src="images/icon_brandClassify-03.png" /></span>
+      <center>口腔</center>
+    </a>
+  </div>
+  <div class="classify_box">
+    <a href="">
+      <span><img src="images/icon_brandClassify-04.png" /></span>
+      <center>母婴</center>
+    </a>
+  </div>
+  <div class="classify_box">
+    <a href="">
+      <span><img src="images/icon_brandClassify-05.png" /></span>
+      <center>男士护肤</center>
+    </a>
+  </div>
+  <div class="classify_box">
+    <a href="">
+      <span><img src="images/icon_brandClassify-06.png" /></span>
+      <center>专业院线</center>
+    </a>
+  </div>
+  <div class="classify_box">
+    <a href="">
+      <span><img src="images/icon_brandClassify-07.png" /></span>
+      <center>彩妆</center>
+    </a>
+  </div>
+  <div class="classify_box">
+    <a href="">
+      <span><img src="images/icon_brandClassify-08.png" /></span>
+      <center>香水香氛</center>
+    </a>
+  </div>
+  <div class="classify_box">
+    <a href="">
+      <span><img src="images/icon_brandClassify-09.png" /></span>
+      <center>洗涤</center>
+    </a>
+  </div>
+  <div class="classify_box">
+    <a href="">
+      <span><img src="images/icon_brandClassify-10.png" /></span>
+      <center>清洁剂</center>
+    </a>
+  </div>
+</section>
+<section class="tryListShow">
+  <h3>免费试用 <a href="#">查看更多&gt;</a></h3>
+  <div class="tryUnit" ng-repeat="d in license">
+    <a href="#">
+      <p class="tryTime" ng-if="d.jud==1">{{d.eTime}}</p>
+      <span ng-if="d.jud==0"><b>已结束</b></span>
+      <img src="{{d.img}}">
+    </a>
+    <p class="proNamer"><a href="#">{{d.name}}</a></p>
+  </div>
+  <!-- <div class="tryUnit">
+    <a href="/product/detail/pid/2012.html">
+      <p class="tryTime" end-time="1461049200" style="display: none"></p>
+      <span style=""><b>已结束</b></span>
+      <img src="http://rmq.hzpgc.com/upload/brand/201511/56445ba78e8ef1.81993281.jpg">
+    </a>
+    <p class="proNamer"><a href="/product/detail/pid/2012.html">金典蜜恋樱桃唇膏</a></p>
+  </div> -->
+</section>
+<section class="brand_hot">
+  <h1 class="brand_title">热门品牌<span class="tryer">可试用</span></h1>
+  <div class="brand_lister" infinite-scroll="myPagingFunction()">
+    <!--品牌列表单元 begin-->
+    <div class="lister_unit" ng-repeat="hot in hotBrands" ui-sref="detail({articleId:hot.id})">
+      <div class="brand_pic">
+        <a href=""><img src="{{hot.logo}}" /></a>
+        <span class="importlabel" ng-if="hot.is_import==0"></span>
+      </div>
+      <div class="brand_info">
+        <h3><a>{{hot.chinesename}}</a></h3>
+        <div class="brand_descript">{{hot.description}}</div>
+        <div class="brand_price">
+          <span class="price">¥ {{hot.low_price}}-{{hot.high_price}}</span>
+          <span class="mark" ng-repeat="mark in hot.oneCategory">
+            {{mark.name}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <!--品牌列表单元 end-->
+  </div>
+  
+</section>

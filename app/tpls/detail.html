@@ -1,0 +1,135 @@
+<section class="brand_classifyBanner">
+	<div lunbo></div>
+</section>
+<section class="brand_classflycontent">
+	<div class="classfly_name">
+		<div class="namer">
+			{{detailInfo.name}}
+			<if condition="$info['is_import'] eq 1">
+			<span><?php echo array_key_exists($info['areaid'], $area)? $area[$info['areaid']] : '进口品'?></span>
+			</if>
+		</div>
+		<div class="classfly_brief">
+			<span class="brief">{{detailInfo.brief}}</span>
+			<span class="collecter">收藏</span>
+			<!--未收藏时类名为collecter   已收藏 类名collecter yes-->
+			
+		</div>
+		<!--<div class="brandBreif">-->
+		
+		<!--</div>-->
+		<div class="classfly_infoers">
+			<span class="price"><span class="price">{{detailInfo.price}}</span></span>
+			<!--未喜欢时类名为loverNum  已喜欢时类名 loverNum yes-->
+			
+		</div>
+	</div>
+	<div class="business">
+		<div class="business_title">招商信息</div>
+		<div class="business_text">
+			{{detailInfo.business_text}}
+		</div>
+	</div>
+	
+	<div class="telephoner">
+		<div class="telephoner_title">电话联系</div>
+		<div class="telephoner_text">
+			{{detailInfo.tel}}
+		</div>
+		<div class="contacter" ui-sref="register">
+			<a href="" class="tel"></a>
+		</div>
+	</div>
+	
+	<!-- <div class="brandContacter">
+		<div class="brandContacter_title">品牌人脉</div>
+		<div class="tbrandContacter_text">
+			<volist name='uinfo' id='vo'>
+			<a href="<{:U('others/index', array('id' => $key, 'gps' => 1))}>"><img src="<{$vo.weiphoto}>" /> </a>
+			</volist>
+		</div>
+	</div> -->
+</section>
+
+<section class="brand_classflydetail">
+	<div class="tabers">
+		<ul>
+			<li ng-class="tab == 1?'active':''" ng-click="tab = 1;"><a href="javascript:void(0);">图文详情</a></li>
+			<li ng-class="tab == 2?'active':''" ng-click="tab = 2"><a href="javascript:void(0);">产品展示</a></li>
+			<li ng-class="tab == 3?'active':''" ng-click="tab = 3"><a href="javascript:void(0);">在线咨询</a></li>
+		</ul>
+	</div>
+	<section class="tabContent">
+		
+		<!--图文详情 begin-->
+		<div class="graphics tabPanel" ng-if="tab == 1">
+			<div class="dossier">
+				<h4>品牌档案</h4>
+				<div class="dossierUnit" ng-repeat="d in detailInfo.dossier">
+					<span>{{d.key}}</span>{{d.value}}
+				</div>
+			</div>
+			
+			<div class='graphics_text' ng-bind-html="detailInfo.des | trustHtml"></div>
+		</div>
+		<!--图文详情 end-->
+		
+		<!--产品展示 begin-->
+		<div class="goodDetail tabPanel" ng-if="tab == 2">
+			<!-- <volist name='product' id='vo'>
+			<div class="goodListUnit">
+				<a href="<{:U('product/detail', array('pid' => $key))}>">
+					<div class="goodPic">
+						<img src="<{$vo['img']}>" />
+						<if condition='$free[$key] eq 1'><span class="couldTest"></span></if>
+					</div>
+					<h3><{$vo['name']}></h3>
+					<p>￥<{$vo['price']}></p>
+				</a>
+			</div>
+			</volist> -->
+		</div>
+		<!--产品展示 begin-->
+		
+		<!--在线咨询 begin-->
+		<div class="brand_contact tabPanel" ng-if="tab == 3">
+			<!-- <volist name="msg" id="vo">
+			<div class="brandContactUnit <if condition='$vo.status eq 1'>only</if>" data-id='<{$vo.id}>'>
+				<div class="contactBox">
+					<div class="contactImg">
+						<img src="<{$vo.weiphoto}>" />
+					</div>
+					<div class="contactInfos">
+						<h3><i><{$vo.name}></i><span><{:date('Y-m-d H:i', $vo['atime'])}></span>  </h3>
+						<p class="companyer"><{$vo.company}></p>
+					</div>
+				</div>
+				<div class="messagesbox">
+					<div class="messages_text"><{:htmlspecialchars_decode($vo['content'])}></div>
+					<if condition="!empty($vo['rcontent'])">
+					<div class="messages_reply">
+						<span></span>
+						[品牌回复]:<br>
+						<{:htmlspecialchars_decode($vo['rcontent'])}>
+					</div>
+					</if>
+				</div>
+			</div>
+			</volist>
+			<div class="contactInfobox" utype = '<{$userType}>'>
+				<div class="contacterHeader">
+					<form>
+						<span class="faceChoice"><img src="__PUBLIC__/card/images/icon_contactFace.png" /></span><span class="contactInputer" ><input type="text" placeholder="" class="brandReply"/></span><span class="sender"><input type="button" value="发送"/></span>
+					</form>
+				</div>
+				<div class="faceboxer" style="display:none">
+					
+				</div>
+			</div> -->
+		</div>
+		<!--在线咨询 end-->
+		
+	</section>
+	
+	
+</section>
